@@ -6,7 +6,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['https://mbti-manager-tool.vercel.app', 'http://localhost:5173'],
+  methods: ['GET', 'POST'],
+  credentials: true,
+}));
 app.use(express.json());
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
