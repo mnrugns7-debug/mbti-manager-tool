@@ -23,8 +23,9 @@ export default function App() {
     setLoading(true);
     setError('');
     try {
+      const apiBase = import.meta.env.VITE_API_URL || 'http://localhost:3001';
       const { data } = await axios.post<ApiResponse>(
-        'http://localhost:3001/api/generate',
+        `${apiBase}/api/generate`,
         form
       );
       setResult(data);
