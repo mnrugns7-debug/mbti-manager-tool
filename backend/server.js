@@ -7,9 +7,8 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: ['https://mbti-manager-tool.vercel.app', 'http://localhost:5173'],
-  methods: ['GET', 'POST'],
-  credentials: true,
+  origin: '*',
+  methods: ['GET', 'POST', 'OPTIONS'],
 }));
 app.use(express.json());
 
